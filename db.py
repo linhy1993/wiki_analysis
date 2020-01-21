@@ -1,7 +1,6 @@
 # cell 1
-from sqlalchemy import create_engine
+from sqlalchemy import Column, Integer, String, Float, create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 
 MUSEUM_DATABASE_URI = 'sqlite:///museum.sqlite'  # db path
@@ -21,6 +20,8 @@ class Museum(Base):  # model
     Number_Of_Visitors = Column(Integer)
     Year_Reported = Column(String(10))
     Population_Of_City = Column(Integer)
+    Lat_Of_City = Column(Float)
+    Lng_Of_City = Column(Float)
 
 
 class City(Base):  # model
@@ -29,8 +30,8 @@ class City(Base):  # model
     index = Column(Integer, primary_key=True)
     city = Column(String(50))
     country = Column(String(50))
-    lat = Column(String(50))
-    lng = Column(String(50))
+    lat = Column(Float)
+    lng = Column(Float)
     population = Column(Integer)
 
 
